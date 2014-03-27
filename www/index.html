@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="shared/jquery.js" type="text/javascript"></script>
+    <script src="shared/shiny.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="shared/shiny.css"/>
+    <link rel="stylesheet" type="text/css" href="shared/slider/css/jquery.slider.min.css"/>
+    <script src="shared/slider/js/jquery.slider.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="shared/bootstrap/css/bootstrap.min.css"/>
+    <script src="shared/bootstrap/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="d3.v3.js" charset="utf-8"></script>
+    <script src="shiny_graph.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="shiny_graph.css"/>
+    <link rel="stylesheet" type="text/css" href="shared/bootstrap/css/bootstrap-responsive.min.css"/>
+    <title>Shiny Graph example</title>
+  </head>
+  <body>
+  <div id="loading">
+    <div id="loading-dialog">
+        <span>
+            <p>Please wait for operation to finish...</p>
+            <img src="loader.gif"></img>
+        </span>
+    </div>
+  </div>
+    <div class="container">
+      <div class="row">
+        <div class="span12" style="padding: 10px 0px;">
+          <h1>Shiny+D3js graph example</h1>
+        </div>
+      </div>
+      <div class="row">
+          <div class="span12">
+              <div class="row">
+                  <div id="controls-panel" class="row top-buffer">
+                      <div class="span3">
+                          <form class="well">
+                              <div>
+                                  <label for="verticesNumber">Vertices number</label>
+                                  <input id="verticesNumber" type="number" value="10" min="5" max="20"/>
+                              </div>
+                              <button id="show" type="button" class="btn action-button">Find module</button>
+                          </form>
+                      </div>
+                      <div class="span9">
+                          <div id="graph" class="graph-output"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div id="showModulePanel" class="js-output"></div>
+  </body>
+</html>
+
