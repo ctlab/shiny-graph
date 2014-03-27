@@ -66,7 +66,6 @@ renderGraph <- function(expr, env=parent.frame(), quoted=FALSE) {
             if (!is.numeric(get.vertex.attribute(val, a))) {
                 next
             }
-            print(a)
             vs <- get.vertex.attribute(val, a)
             vs[which(vs == Inf)] <- 1e100
             vs[which(vs == -Inf)] <- -1e100
@@ -76,7 +75,6 @@ renderGraph <- function(expr, env=parent.frame(), quoted=FALSE) {
             if (!is.numeric(get.edge.attribute(val, a))) {
                 next
             }
-            print(a)
             vs <- get.edge.attribute(val, a)
             vs[which(vs == Inf)] <- 1e100
             vs[which(vs == -Inf)] <- -1e100
@@ -102,7 +100,9 @@ shinyServer(function(input, output, session) {
         graph <- graph.ring(input$verticesNumber)
         V(graph)$label <- as.character(seq_len(input$verticesNumber))
         V(graph)$log2FC <- rnorm(input$verticesNumber)
-
+        layout <- layout.norm(layout.kamada.kawai(graph), 0, 1, 0, 1)
+        V(graph)$x <- layout[,1]
+        V(graph)$y <- layout[,2]
         longProcessStop()
         graph
     })

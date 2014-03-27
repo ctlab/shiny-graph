@@ -119,8 +119,7 @@ function loadGraph(container, graph) {
     var width = $(container).width(),
         height = $(container).height();
 
-    container.zoo
-
+    graph.nodes.map(function(n) { n.x = n.x * width; n.y = n.y * height; })
 
     container.force = d3.layout.force()
         .nodes(graph.nodes)
